@@ -1,0 +1,81 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import fish1 from "@/assets/IMG_0672.jpg";
+import fish2 from "@/assets/IMG_0690.jpg";
+import fish3 from "@/assets/IMG_8601.jpg";
+---
+
+<section id="b2b" class="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
+  <ScrollReveal client:idle delay={0.1}>
+    <h2 class="text-4xl font-bold text-center mb-6">Συνεργασίες B2B</h2>
+    <p class="text-slate-800 text-center mb-12">
+      Εξειδικευμένη εξυπηρέτηση για εστιατόρια, ξενοδοχεία, catering και
+      επαγγελματίες εστίασης που αναζητούν συνέπεια, ποιότητα και σταθερή
+      συνεργασία, με προϊόντα που ξεχωρίζουν και στην εικόνα και στη γεύση.
+    </p>
+  </ScrollReveal>
+  <div class="grid md:grid-cols-2 gap-8">
+    <ScrollReveal client:idle delay={0.2} scale={true}>
+      <div
+        class="min-h-42 p-6 bg-slate-200 rounded-lg hover:shadow-lg transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-2">Για επαγγελματίες εστίασης</h3>
+        <p class="text-slate-800">
+          Συνεπής τροφοδοσία, επαγγελματική εξυπηρέτηση, επιλεγμένες πρώτες ύλες
+          και δυνατότητα επικοινωνίας για ειδικές ανάγκες, premium προϊόντα και
+          παραγγελίες χονδρικής.
+        </p>
+      </div>
+    </ScrollReveal>
+    <ScrollReveal client:idle delay={0.2} scale={true}>
+      <div
+        class="min-h-42 p-6 bg-slate-200 rounded-lg hover:shadow-lg transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-2">Συνεργασίες με επαγγελματίες</h3>
+        <p class="text-slate-800">
+          Δυνατότητα επικοινωνίας για σταθερές συνεργασίες, ειδικές παραγγελίες,
+          premium προϊόντα και προσαρμοσμένη εξυπηρέτηση ανάλογα με τις ανάγκες
+          κάθε επαγγελματία.
+        </p>
+      </div>
+    </ScrollReveal>
+  </div>
+  <ScrollReveal client:idle delay={0.1}>
+    <h2 id="about" class="mt-12 text-4xl font-bold text-center mb-6">
+      Σχετικά με εμάς
+    </h2>
+  </ScrollReveal>
+  <div class="grid md:grid-cols-2 gap-8">
+    <ScrollReveal client:idle delay={0.2} scale={true}>
+      <div
+        class="min-h-52 p-6 bg-slate-200 rounded-lg hover:shadow-lg transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-2">Η φιλοσοφία μας</h3>
+        <p class="text-slate-800">
+          Ο Θαλασσόκηπος - Ιχθυοπωλεία Δημητριάδη χτίζεται πάνω στην
+          εμπιστοσύνη, τη φρεσκάδα, τη συνέπεια και τη συνεχή εξέλιξη. Το νέο
+          κατάστημα σηματοδοτεί μια πιο σύγχρονη, καθαρή και premium εμπειρία
+          αγοράς.
+        </p>
+      </div>
+    </ScrollReveal>
+    <ScrollReveal client:idle delay={0.2} scale={true}>
+      <div
+        class="min-h-52 p-6 bg-slate-200 rounded-lg hover:shadow-lg transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-2">Γιατί να μας επιλέξετε</h3>
+        <p class="text-slate-800">
+          <ul class="text-slate-800 list-disc list-inside">
+            <li>Εμπειρία πολλών ετών στον χώρο</li>
+            <li>Συνδυασμός λιανικής και χονδρικής</li>
+            <li>Προϊόντα με premium προσανατολισμό</li>
+            <li>Καθαρισμός, φιλετάρισμα και ειδική εξυπηρέτηση</li>
+            <li>Νέο σύγχρονο κατάστημα στην οδό Κομνηνών 28</li>
+          </ul>
+        </p>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>

@@ -3,7 +3,8 @@ import { Icon } from "astro-icon/components";
 ---
 
 <header
-  class="w-full py-4 px-4 border-b border-gray-200 bg-white sticky top-0 z-50"
+  id="site-header"
+  class="relative z-50 w-full py-4 px-4 top-0"
   role="banner"
 >
   <nav
@@ -12,16 +13,21 @@ import { Icon } from "astro-icon/components";
   >
     <a
       href="/"
-      class="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
-      aria-label="Astro Base - Home"
+      class="inline-flex items-center gap-3 text-2xl font-bold text-white hover:text-gray-200 transition-colors"
+      aria-label="Θαλασσόκηπος"
     >
-      Astro Base
+      <img
+        src="/thalassokipos_logo_white.png"
+        alt="Θαλασσόκηπος logo"
+        class="w-8 h-8 object-contain"
+      />
+      Θαλασσόκηπος
     </a>
-    
+
     <!-- Mobile menu button -->
     <button
       type="button"
-      class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 rounded-lg"
+      class="md:hidden p-2 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 rounded-lg"
       aria-label="Toggle menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -34,29 +40,38 @@ import { Icon } from "astro-icon/components";
     <ul class="hidden md:flex items-center gap-6" role="list">
       <li>
         <a
-          href="/features"
-          class="text-gray-600 hover:text-gray-900 transition-colors"
-          aria-current={Astro.url.pathname === '/features' ? 'page' : undefined}
+          href="#products"
+          class="text-white hover:text-gray-200 transition-colors"
+          aria-current={Astro.url.pathname === "#products" ? "page" : undefined}
         >
-          Features
+          Προϊόντα
         </a>
       </li>
       <li>
         <a
-          href="/about"
-          class="text-gray-600 hover:text-gray-900 transition-colors"
-          aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}
+          href="#b2b"
+          class="text-white hover:text-gray-200 transition-colors"
+          aria-current={Astro.url.pathname === "#b2b" ? "page" : undefined}
         >
-          About
+          B2B
         </a>
       </li>
       <li>
         <a
-          href="/contact"
+          href="#about"
+          class="text-white hover:text-gray-200 transition-colors"
+          aria-current={Astro.url.pathname === "#about" ? "page" : undefined}
+        >
+          Σχετικά με εμάς
+        </a>
+      </li>
+      <li>
+        <a
+          href="#cta"
           class="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
-          aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}
+          aria-current={Astro.url.pathname === "#cta" ? "page" : undefined}
         >
-          Contact
+          Επικοινωνία
         </a>
       </li>
     </ul>
@@ -65,74 +80,92 @@ import { Icon } from "astro-icon/components";
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden border-t border-gray-200 bg-white"
+    class="hidden md:hidden border-slate-800 bg-slate-950 text-white"
     role="menu"
     aria-labelledby="mobile-menu-button"
   >
     <ul class="flex flex-col py-4" role="list">
       <li>
         <a
-          href="/features"
-          class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+          href="#products"
+          class="block px-4 py-3 text-white hover:bg-slate-900 transition-colors"
           role="menuitem"
-          aria-current={Astro.url.pathname === '/features' ? 'page' : undefined}
+          aria-current={Astro.url.pathname === "#products" ? "page" : undefined}
         >
-          Features
+          Προϊόντα
         </a>
       </li>
       <li>
         <a
-          href="/about"
-          class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+          href="#b2b"
+          class="block px-4 py-3 text-white hover:bg-slate-900 transition-colors"
           role="menuitem"
-          aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}
+          aria-current={Astro.url.pathname === "#b2b" ? "page" : undefined}
         >
-          About
+          B2B
         </a>
       </li>
       <li>
         <a
-          href="/contact"
-          class="block px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+          href="#about"
+          class="block px-4 py-3 text-white hover:bg-slate-900 transition-colors"
           role="menuitem"
-          aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}
+          aria-current={Astro.url.pathname === "#about" ? "page" : undefined}
         >
-          Contact
+          Σχετικά με εμάς
+        </a>
+      </li>
+      <li>
+        <a
+          href="#cta"
+          class="block px-4 py-3 text-white hover:bg-slate-900 transition-colors"
+          role="menuitem"
+          aria-current={Astro.url.pathname === "#cta" ? "page" : undefined}
+        >
+          Επικοινωνία
         </a>
       </li>
     </ul>
   </div>
 </header>
 
-<script>
+<script is:inline>
   // Mobile menu toggle functionality
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  if (menuButton && mobileMenu) {
-    menuButton.addEventListener('click', () => {
-      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isExpanded));
-      mobileMenu.classList.toggle('hidden');
+  const menuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const siteHeader = document.getElementById("site-header");
+
+  if (menuButton && mobileMenu && siteHeader) {
+    menuButton.addEventListener("click", () => {
+      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+
+      const willBeExpanded = !isExpanded;
+      menuButton.setAttribute("aria-expanded", String(willBeExpanded));
+      mobileMenu.classList.toggle("hidden");
+      siteHeader.classList.toggle("bg-slate-950", willBeExpanded);
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
+      const target = e.target;
       if (
-        !menuButton.contains(e.target as Node) &&
-        !mobileMenu.contains(e.target as Node) &&
-        !mobileMenu.classList.contains('hidden')
+        target instanceof Node &&
+        !menuButton.contains(target) &&
+        !mobileMenu.contains(target) &&
+        !mobileMenu.classList.contains("hidden")
       ) {
-        menuButton.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.add('hidden');
+        menuButton.setAttribute("aria-expanded", "false");
+        mobileMenu.classList.add("hidden");
+        siteHeader.classList.remove("bg-slate-950");
       }
     });
 
     // Close menu on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-        menuButton.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.add('hidden');
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+        menuButton.setAttribute("aria-expanded", "false");
+        mobileMenu.classList.add("hidden");
+        siteHeader.classList.remove("bg-slate-950");
         menuButton.focus();
       }
     });

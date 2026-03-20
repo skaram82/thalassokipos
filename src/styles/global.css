@@ -24,3 +24,14 @@
   clip: auto;
   white-space: normal;
 }
+
+/* Smooth anchor scrolling (respects reduced-motion below) */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

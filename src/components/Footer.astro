@@ -10,66 +10,67 @@ import { Icon } from "astro-icon/components";
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       <div>
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Astro Base</h2>
-        <p class="text-gray-600">
-          A basic minimal starter template built for Astro with React, Framer
-          Motion and Tailwind.
+        <span class="inline-flex items-center gap-3 text-2xl font-bold">
+          <img
+            src="/thalassokipos_logo.png"
+            alt="Θαλασσόκηπος logo"
+            class="w-8 h-8 object-contain"
+          />
+          Θαλασσόκηπος
+        </span>
+        <p class="text-slate-800">
+          Ιχθυοπωλεία Δημητριάδη · Premium Fish Market Θεσσαλονίκη
         </p>
       </div>
       <div>
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Links</h2>
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Επικοινωνία</h2>
         <ul class="space-y-2">
+          <li>Τηλέφωνο: 2310 228335 / 2310 235220</li>
           <li>
-            <a
-              href="/features"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Features</a
-            >
+            Τοποθεσία: 1ο: Βλάλη & Μενεξέ 19 - 2ο: Ασκητού 45, Καπάνι
+            Θεσσαλονίκη
           </li>
-          <li>
-            <a
-              href="/about"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="/contact"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Contact</a
-            >
-          </li>
+          <li>Νέα τοποθεσία: Κομνηνών 28, Θεσσαλονίκη</li>
         </ul>
       </div>
       <div>
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Connect</h2>
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">
+          Ακολουθήστε μας
+        </h2>
         <ul class="space-y-2">
           <li>
             <a
-              href="https://github.com"
+              href="https://www.instagram.com/thalassokipos_skg/"
               class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit our GitHub (opens in new tab)"
+              aria-label="Follow us on Instagram (opens in new tab)"
             >
-              <Icon name="tabler:brand-github" class="w-5 h-5" aria-hidden="true" />
-              <span>GitHub</span></a
+              <Icon
+                name="tabler:brand-instagram"
+                class="w-5 h-5"
+                aria-hidden="true"
+              />
+              <span>Instagram</span></a
             >
           </li>
           <li>
             <a
-              href="https://twitter.com"
+              href="https://www.facebook.com/dimitriadisfish/?locale=el_GR"
               class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow us on Twitter (opens in new tab)"
+              aria-label="Follow us on Facebook (opens in new tab)"
             >
-              <Icon name="tabler:brand-twitter" class="w-5 h-5" aria-hidden="true" />
-              <span>Twitter</span></a
+              <Icon
+                name="tabler:brand-facebook"
+                class="w-5 h-5"
+                aria-hidden="true"
+              />
+              <span>Facebook</span></a
             >
           </li>
-          <li>
+          <!-- <li>
             <a
               href="/contact"
               class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
@@ -77,12 +78,27 @@ import { Icon } from "astro-icon/components";
               <Icon name="tabler:mail" class="w-5 h-5" aria-hidden="true" />
               <span>Email</span></a
             >
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
+    <div class="relative w-full h-96">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.7354356791257!2d22.94015308485887!3d40.63571615896448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a839a817d46863%3A0xf96c1a907008b63f!2sDimitriadis%20Fish%20-%20Thalassokipos!5e0!3m2!1sen!2sgr!4v1773062987196!5m2!1sen!2sgr"
+        frameborder="0"
+        style="border:0;"
+        allowfullscreen=""
+        aria-hidden="false"
+        tabindex="0"
+      >
+      </iframe>
+    </div>
     <div class="pt-8 border-t border-gray-200 text-center text-gray-600">
-      <p>&copy; {new Date().getFullYear()} Astro Base. All rights reserved.</p>
+      <p>
+        &copy; {new Date().getFullYear()} Θαλασσόκηπος - Ιχθυοπωλεία Δημητριάδη ·
+        Premium Fish Market Θεσσαλονίκη. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
