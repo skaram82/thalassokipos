@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -18,37 +17,43 @@ export default function ScrollReveal({
   duration = 0.8,
   scale = false,
 }: ScrollRevealProps) {
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: direction === "up" ? distance : direction === "down" ? -distance : 0,
-      x:
-        direction === "left" ? distance : direction === "right" ? -distance : 0,
-      scale: scale ? 0.9 : 1,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 15,
-        mass: 1,
-        delay,
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-    },
+      { root: null, threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const hiddenY = direction === "up" ? distance : direction === "down" ? -distance : 0;
+  const hiddenX = direction === "left" ? distance : direction === "right" ? -distance : 0;
+
+  const style: CSSProperties = {
+    opacity: isVisible ? 1 : 0,
+    transform: `translate3d(${isVisible ? 0 : hiddenX}px, ${isVisible ? 0 : hiddenY}px, 0) scale(${isVisible ? 1 : scale ? 0.9 : 1})`,
+    transitionProperty: "opacity, transform",
+    transitionDuration: `${duration}s`,
+    transitionTimingFunction: "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    transitionDelay: `${delay}s`,
+    willChange: "opacity, transform",
   };
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={variants}
-    >
+    <div ref={containerRef} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

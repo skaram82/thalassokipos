@@ -6,6 +6,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { SITE } from "./src/config/site.mjs";
+import { fileURLToPath } from "node:url";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,15 +23,18 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
+    },
     build: {
       cssMinify: "lightningcss",
-      minify: "terser",
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
+      minify: "esbuild",
+    },
+    esbuild: {
+      // Match the previous intention of dropping console/debugger in production.
+      drop: ["console", "debugger"],
     },
   },
   build: {

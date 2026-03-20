@@ -1,0 +1,50 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+import img18 from "@/assets/18.jpg";
+import img0672 from "@/assets/IMG_0672.jpg";
+import img0690 from "@/assets/IMG_0690.jpg";
+import img8580 from "@/assets/IMG_8580.jpg";
+import img8583 from "@/assets/IMG_8583.jpg";
+import img8585 from "@/assets/IMG_8585.jpg";
+import img8601 from "@/assets/IMG_8601.jpg";
+import img8608 from "@/assets/IMG_8608.jpg";
+
+const baseImages = [
+  img18.src,
+  img0672.src,
+  img0690.src,
+  img8580.src,
+  img8583.src,
+  img8585.src,
+  img8601.src,
+  img8608.src,
+];
+
+// The gallery needs 18 tiles; the repo currently contains 8 demo images.
+const images = Array.from(
+  { length: 8 },
+  (_, i) => baseImages[i % baseImages.length]
+);
+---
+
+<section id="gallery" class="w-full bg-gray-50">
+  <ScrollReveal client:idle delay={0.2} scale={true}>
+    <div class="w-full">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-0">
+        {
+          images.map((src, i) => (
+            <div class="relative overflow-hidden bg-gray-200 aspect-square">
+              <img
+                src={src}
+                alt={`Gallery photo ${i + 1}`}
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </ScrollReveal>
+</section>
